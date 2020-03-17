@@ -1,7 +1,7 @@
 defmodule Nebulex.Mixfile do
   use Mix.Project
 
-  @version "1.2.1"
+  @version "2.0.0-dev"
 
   def project do
     [
@@ -9,7 +9,6 @@ defmodule Nebulex.Mixfile do
       version: @version,
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
-      elixirc_options: [warnings_as_errors: System.get_env("CI") == "true"],
       deps: deps(),
 
       # Docs
@@ -44,14 +43,15 @@ defmodule Nebulex.Mixfile do
   defp deps do
     [
       {:shards, "~> 0.6"},
-      {:decorator, "~> 1.3"},
+      {:decorator, "~> 1.3", optional: true},
+      {:telemetry, "~> 0.4", optional: true},
 
       # Test
       {:excoveralls, "~> 0.12", only: :test},
       {:ex2ms, "~> 1.5", only: :test},
       {:mock, "~> 0.3", only: :test},
-      {:benchee, "~> 1.0", optional: true, only: :dev},
-      {:benchee_html, "~> 1.0", optional: true, only: :dev},
+      {:benchee, "~> 1.0", optional: true, only: :test},
+      {:benchee_html, "~> 1.0", optional: true, only: :test},
 
       # Code Analysis
       {:dialyxir, "~> 0.5", optional: true, only: [:dev, :test], runtime: false},
@@ -80,8 +80,8 @@ defmodule Nebulex.Mixfile do
       source_url: "https://github.com/cabol/nebulex",
       extras: [
         "guides/getting-started.md",
-        "guides/hooks.md",
-        "guides/caching-decorators.md"
+        "guides/cache-usage-patterns.md",
+        "guides/hooks.md"
       ]
     ]
   end

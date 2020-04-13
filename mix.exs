@@ -29,7 +29,10 @@ defmodule Nebulex.Mixfile do
 
       # Hex
       package: package(),
-      description: "A fast, flexible and powerful distributed caching framework for Elixir."
+      description: """
+      In-Process and Distributed Caching Toolkit for Elixir. Easily craft and
+      deploy distributed cache topologies and different cache usage patterns.
+      """
     ]
   end
 
@@ -80,8 +83,7 @@ defmodule Nebulex.Mixfile do
       source_url: "https://github.com/cabol/nebulex",
       extras: [
         "guides/getting-started.md",
-        "guides/cache-usage-patterns.md",
-        "guides/hooks.md"
+        "guides/cache-usage-patterns.md"
       ]
     ]
   end

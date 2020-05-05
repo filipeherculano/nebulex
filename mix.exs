@@ -57,7 +57,7 @@ defmodule Nebulex.Mixfile do
       {:benchee_html, "~> 1.0", optional: true, only: :test},
 
       # Code Analysis
-      {:dialyxir, "~> 0.5", optional: true, only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0", optional: true, only: [:dev, :test], runtime: false},
       {:credo, "~> 1.1", optional: true, only: [:dev, :test]},
 
       # Docs
@@ -91,6 +91,7 @@ defmodule Nebulex.Mixfile do
   defp dialyzer do
     [
       plt_add_apps: [:shards, :mix, :eex],
+      plt_file: {:no_warn, "priv/plts/dialyzer_#{Mix.env()}.plt"},
       flags: [
         :unmatched_returns,
         :error_handling,

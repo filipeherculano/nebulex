@@ -47,23 +47,22 @@ defmodule Nebulex.Mixfile do
 
   defp deps do
     [
-      {:shards, "~> 0.6"},
+      {:shards, "~> 0.6", optional: true},
       {:decorator, "~> 1.3", optional: true},
-      {:telemetry, "~> 0.4", optional: true},
 
       # Test
-      {:excoveralls, "~> 0.12", only: :test},
-      {:ex2ms, "~> 1.5", only: :test},
+      {:excoveralls, "~> 0.13", only: :test},
+      {:ex2ms, "~> 1.6", only: :test},
       {:mock, "~> 0.3", only: :test},
       {:benchee, "~> 1.0", optional: true, only: :test},
       {:benchee_html, "~> 1.0", optional: true, only: :test},
 
       # Code Analysis
       {:dialyxir, "~> 1.0", optional: true, only: [:dev, :test], runtime: false},
-      {:credo, "~> 1.1", optional: true, only: [:dev, :test]},
+      {:credo, "~> 1.4", optional: true, only: [:dev, :test]},
 
       # Docs
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
       {:inch_ex, "~> 2.0", only: :docs}
     ]
   end
